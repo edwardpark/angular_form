@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" ng-app='grumblr'>
+<head>
+ <meta charset="UTF-8">
+ <title>Angular Lesson</title>
+     <script src="bower_components/jquery/dist/jquery.min.js"></script>
+     <script src="bower_components/angular/angular.min.js"></script>
+     <script src="js/app.js"></script>
+     <script src="js/controllers/grumblr.js"></script>
+     <!-- Latest compiled and minified CSS -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Optional theme -->
+     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+     <link rel ="stylesheet" href="main.css">
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class ="container">
+  <div class= "page-header">
+    <h1>ANGULAR BIATCH</h1>
+  </div>
+
+  <div class ="well">
+    <div ng-controller="grumblrController as grumblrCntrl">
+      <p>{{grumblrCntrl.list[1]}}</p>
+    </div><!-- end ng-controller grumblrController -->
+  </div><!--end well -->
+
+</div><!--end container -->
+</body>
+</html>
+<!-- -->
