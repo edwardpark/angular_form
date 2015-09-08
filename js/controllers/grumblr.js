@@ -2,12 +2,37 @@ var app = angular.module('grumblr');
 
 app.controller('grumblrController',function(){
 
+ this.formIsVisible = false;
+ this.toggleForm = function(){
+     console.log("toggleform");
 
+     if(this.formIsVisible){
+       this.formIsVisible = false;
+     }
+     else{
+       this.formIsVisible = true;
+     }
+ }
+ this.create = function(){
+   this.list.unshift(this);
+   this.reset();//figure out what is going on with this
+ };
 
+ this.edit = function(index){
+   var grumble = this.list[index];
+   this.title = grumble.title;
+   this.author_name = grumble.author_name;
+   this.content = grumble.content;
+   this.photo_url = grumble.photo_url;
+ };
 
-
-
-
+ this.update = function(index){
+   var grumble = this.list[index];
+   grumble.title = this.title;
+   grumble.author_name = this.author_name;
+   grumble.content = this.content;
+   grumble.photo_url = this.photo_url;
+ };
 
   this.list = [
     {

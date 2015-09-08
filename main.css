@@ -1,3 +1,18 @@
 .page-header{
   text-align: center;
+  font-family: 'Lobster';
+  font-weight: bold;
+}
+
+.btn {
+  margin-bottom: 10px;
+}
+
+form{
+  margin-bottom: 20px;
+}
+
+.title_display{
+  font-weight:bold;
+  font-size:1.5em;
 }

@@ -13,19 +13,68 @@
      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
     <!-- Latest compiled and minified JavaScript -->
      <link rel ="stylesheet" href="main.css">
+     <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
+
 <body>
 <div class ="container">
   <div class= "page-header">
-    <h1>ANGULAR BIATCH</h1>
+    <h1>ANGULAR  BLOG</h1>
   </div>
 
-  <div class ="well">
+
     <div ng-controller="grumblrController as grumblrCntrl">
-      <p>{{grumblrCntrl.list[1]}}</p>
+        <div class="btn btn-success" ng-click ="grumblrCntrl.toggleForm()">New Grumble</div>
+        <form ng-show="grumblrCntrl.formIsVisible" ng-submit="grumblrCntrl.create()">
+            <label>Title:</label>
+            <input type="text" name ="title" ng-model="grumblrCntrl.title"/></br>
+
+            <label>Author name:</label>
+            <input type="text" name ="author_name" ng-model="grumblrCntrl.author_name"/></br>
+
+            <label>Content:</label>
+            <input type="text" name ="content" ng-model="grumblrCntrl.content"/></br>
+
+            <label>Photo url:</label>
+            <input type="url" name="photo_url" ng-model="grumblrCntrl.photo_url"></br>
+            <input type="submit" value="submit"/>
+        </form>
+
+        <div ng-repeat="grumble in grumblrCntrl.list">
+          <div class= "well">
+            <div ng-show="!editGrumble">
+              <!-- ok so this wierd so since editGrumble tech is not instantiated editGrumble is undefined which is a falsey  -->
+              <!-- so when we then do !editGrumble is is the oppose of falsey which is true! and thus shows-->
+              <!-- but then on the ng-click we are replacing it to the opposite which in our case is false thus hiding it.-->
+
+              <p class="title_display">{{grumble.title}}</p>
+              <p>by: {{grumble.author_name}}</p>
+
+              <p>{{grumble.content}}</p>
+
+              <p>{{grumble.photo_url}}</p>
+              <button class="edit btn btn-primary" ng-click="grumblrCntrl.edit($index); editGrumble = !editGrumble"> Edit </button>
+            </div>
+            <form ng-show="editGrumble">
+              <label>Title:</label>
+              <input type="text" name ="title" ng-model="grumblrCntrl.title"/></br>
+
+              <label>Author name:</label>
+              <input type="text" name ="author_name" ng-model="grumblrCntrl.author_name"/></br>
+
+              <label>Content:</label>
+              <input type="text" name ="content" ng-model="grumblrCntrl.content"/></br>
+
+              <label>Photo url:</label>
+              <input type="url" name="photo_url" ng-model="grumblrCntrl.photo_url"></br>
+              <button class ="edit btn btn-primary" ng-click="editGrumble = !editGrumble">Cancel</button>
+                <button class="update btn btn-success" ng-click="grumblrCntrl.update($index); editGrumble = !editGrumble">Update</button>
+            </form>
+          </div><!-- end of individual gurmble wells-->
+        </div><!--end of ng-repeat gurmble -->
     </div><!-- end ng-controller grumblrController -->
-  </div><!--end well -->
+
 
 </div><!--end container -->
 </body>
