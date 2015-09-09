@@ -56,7 +56,10 @@
               <p>{{grumble.photo_url}}</p>
 
               <div ng-repeat ="comment in grumble.comments">
-                <p>{{comment.comment}}</p>
+                <div class="well">
+                  <p>comment: {{comment.comment}}</p>
+                  <p>by: {{comment.comment_author}}</p>
+                </div>
               </div>
 
               <button class="edit btn btn-primary" ng-click="grumblrCntrl.edit($index); editGrumble = !editGrumble"> Edit </button>
