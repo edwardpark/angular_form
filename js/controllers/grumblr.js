@@ -33,10 +33,13 @@ app.controller('grumblrController',function(){
    grumble.content = this.content;
    grumble.photo_url = this.photo_url;
  };
+ this.delete = function (index){
+    this.list.splice(index,1)
+ };
 
   this.list = [
     {
-      title:"Fuck that Sun, Lets drink and Fight",
+      title:"Lets drink and Fight",
       author_name:"Earnest HemingWay ",
       content:"Cras et felis nisi. Phasellus bibendum mauris quis ante aliquam, eget consequat urna facilisis. Curabitur semper ligula vitae neque dapibus congue. Aliquam posuere massa quis lacus vulputate, id sollicitudin urna fringilla. Vivamus eu cursus risus, ut bibendum lacus.  ",
       photo_url:"http://www.dogbreedinfo.com/images10/PembrokeLucy2.jpg "

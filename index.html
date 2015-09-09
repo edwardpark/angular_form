@@ -69,7 +69,8 @@
               <label>Photo url:</label>
               <input type="url" name="photo_url" ng-model="grumblrCntrl.photo_url"></br>
               <button class ="edit btn btn-primary" ng-click="editGrumble = !editGrumble">Cancel</button>
-                <button class="update btn btn-success" ng-click="grumblrCntrl.update($index); editGrumble = !editGrumble">Update</button>
+              <button class="update btn btn-success" ng-click="grumblrCntrl.update($index); editGrumble = !editGrumble">Update</button>
+              <button class="delete btn btn-danger" ng-click="grumblrCntrl.delete($index); editGrumble = !editGrumble">Delete</button>
             </form>
           </div><!-- end of individual gurmble wells-->
         </div><!--end of ng-repeat gurmble -->
