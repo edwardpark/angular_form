@@ -20,7 +20,7 @@
 <body>
 <div class ="container">
   <div class= "page-header">
-    <h1>ANGULAR  BLOG</h1>
+    <img src="http://www.andrewboni.com/images/2013-08-25/angularjs.jpeg" alt="title"/>
   </div>
 
 
@@ -54,6 +54,11 @@
               <p>{{grumble.content}}</p>
 
               <p>{{grumble.photo_url}}</p>
+
+              <div ng-repeat ="comment in grumble.comments">
+                <p>{{comment.comment}}</p>
+              </div>
+
               <button class="edit btn btn-primary" ng-click="grumblrCntrl.edit($index); editGrumble = !editGrumble"> Edit </button>
             </div>
             <form ng-show="editGrumble">
@@ -68,6 +73,7 @@
 
               <label>Photo url:</label>
               <input type="url" name="photo_url" ng-model="grumblrCntrl.photo_url"></br>
+
               <button class ="edit btn btn-primary" ng-click="editGrumble = !editGrumble">Cancel</button>
               <button class="update btn btn-success" ng-click="grumblrCntrl.update($index); editGrumble = !editGrumble">Update</button>
               <button class="delete btn btn-danger" ng-click="grumblrCntrl.delete($index); editGrumble = !editGrumble">Delete</button>
