@@ -18,6 +18,12 @@ app.controller('grumblrController',function(){
    this.reset();//figure out what is going on with this
  };
 
+this.createComment = function(index){
+  var grumble_comment = this.list[index].comments;
+  this.comment = grumble_comment.comment;
+  this.comment_author= grumble_comment.comment_author;
+  grumble_comment.unshift(this);
+};
  this.edit = function(index){
    var grumble = this.list[index];
    this.title = grumble.title;
